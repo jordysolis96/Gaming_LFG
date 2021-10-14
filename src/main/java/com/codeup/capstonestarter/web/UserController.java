@@ -4,6 +4,8 @@ import com.codeup.capstonestarter.data.User;
 import com.codeup.capstonestarter.data.UserRepository;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping(value = "/api/users", headers = "Accept=application/json", produces = "application/json")
 public class UserController {
@@ -15,13 +17,13 @@ public class UserController {
     }
 
     @GetMapping
-    private void find(){
-        userRepository.findAll();
+    private List<User> find(){
+       return userRepository.findAll();
     }
 
     @GetMapping("/{id}")
-    private void findById(@PathVariable Long id){
-        userRepository.getById(id);
+    private User findById(@PathVariable Long id){
+       return userRepository.findById(id).get();
     }
 
     @PostMapping("/create")

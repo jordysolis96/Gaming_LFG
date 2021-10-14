@@ -1,5 +1,6 @@
 import createView from "../createView.js";
-
+//Eventually just make the register view a popup in the nav. Same as the login
+//add gaming platform and gamer tag
 export default function Register(props) {
     return `<!DOCTYPE html>
 <html lang="en">
@@ -13,15 +14,15 @@ export default function Register(props) {
         <form>
                 <div class="form-group">
                     <label for="username">Username</label>
-                    <input type="text" class="form-control" id="username" placeholder="Enter your preferred username">
+                    <input type="text" class="form-control" id="username" placeholder="Enter your username">
                 </div>
                 <div class="form-group">
                     <label for="email">Email</label>
-                    <input type="email" class="form-control" id="email" placeholder="blah@blah">
+                    <input type="email" class="form-control" id="email" placeholder="Enter email">
                 </div>
                 <div class="form-group">
                     <label for="password">Password</label>
-                    <input type="password" class="form-control" id="password" placeholder="Enter robust password">
+                    <input type="password" class="form-control" id="password" placeholder="Enter password">
                 </div>
                 <button type="submit" class="myButton" id="submit-user">Submit</button>
             </form>
@@ -33,23 +34,24 @@ export function registerListener() {
     $("#submit-user").click(function() {
         let username = $("#username").val();
         let email = $("#email").val();
-        let pass = $("#password").val();
+        let password = $("#password").val();
 
         console.log(username);
         console.log(email);
-        console.log(pass);
+        console.log(password);
 
-        let userObj = {
+        let user = {
+            id: 0,
             username: username,
             email: email,
-            password: pass
+            password: password
         }
-
+console.log(user)
         let request = {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"},
-            body: JSON.stringify(userObj)
+            body: JSON.stringify(user)
         };
 
         fetch("http://localhost:8080/api/users/create", request)
