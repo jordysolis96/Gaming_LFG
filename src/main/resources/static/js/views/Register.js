@@ -9,23 +9,29 @@ export default function Register(props) {
         <title>User Registration</title>
     </head>
     <body>
-        <h1 id="register-heading">Register User</h1>
+        <h1 id="register-heading" style="text-align: center;">Register to start your adventure</h1>
     
-        <form>
+    <div class="reg-form" style="margin-top: 75px;">
+        <form class="register-form" style="margin-bottom: 50px">
                 <div class="form-group">
-                    <label for="username">Username</label>
-                    <input type="text" class="form-control" id="username" placeholder="Enter your username">
+                    <input type="text" class="form-control" id="username" placeholder="Username">
                 </div>
                 <div class="form-group">
-                    <label for="email">Email</label>
-                    <input type="email" class="form-control" id="email" placeholder="Enter email">
+                    <input type="email" class="form-control" id="email" placeholder="Email">
+                </div>
+                 <div class="form-group"> <!--turn to enum eventually-->
+                    <input type="text" class="form-control" id="platform" placeholder="ex. Playstation">
                 </div>
                 <div class="form-group">
-                    <label for="password">Password</label>
-                    <input type="password" class="form-control" id="password" placeholder="Enter password">
+                    <input type="text" class="form-control" id="gamerTag" placeholder="Gamertag">
                 </div>
-                <button type="submit" class="myButton" id="submit-user">Submit</button>
+                <div class="form-group">
+                    <input type="password" class="form-control" id="password" placeholder="Password">
+                </div>
+                <button type="submit" class="myButton btn btn-dark" id="submit-user">Submit</button>
             </form>
+            <p style="text-align: center; margin-bottom: 20px">Have an account?<a> Sign in</a></p>
+    </div>
     </body>
 </html>`;
 }
