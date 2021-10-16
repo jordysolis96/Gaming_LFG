@@ -1,6 +1,6 @@
 import createView from "../createView.js";
 //Eventually just make the register view a popup in the nav. Same as the login
-//add gaming platform and gamer tag
+//add password strength meter
 export default function Register(props) {
     return `<!DOCTYPE html>
 <html lang="en">
@@ -20,7 +20,14 @@ export default function Register(props) {
                     <input type="email" class="form-control" id="email" placeholder="Email">
                 </div>
                  <div class="form-group"> <!--turn to enum eventually-->
-                    <input type="text" class="form-control" id="platform" placeholder="ex. Playstation">
+<!--                    <input type="text" class="form-control" id="platform" placeholder="ex. Playstation">-->
+            <select id="platform" class="form-control">
+            <option value="Playstation">Playstation</option>
+            <option value="Switch">Switch</option>
+            <option value="Xbox">Xbox</option>
+            <option value="PC">PC</option>
+            <option value="Mobile">Mobile</option>
+        </select>  
                 </div>
                 <div class="form-group">
                     <input type="text" class="form-control" id="gamerTag" placeholder="Gamertag">
@@ -40,6 +47,8 @@ export function registerListener() {
     $("#submit-user").click(function() {
         let username = $("#username").val();
         let email = $("#email").val();
+        let platform = $("#platform option:selected").val();
+        let gamerTag = $("#gamerTag").val();
         let password = $("#password").val();
 
         console.log(username);
@@ -50,6 +59,8 @@ export function registerListener() {
             id: 0,
             username: username,
             email: email,
+            platform: platform,
+            gamerTag: gamerTag,
             password: password
         }
 console.log(user)

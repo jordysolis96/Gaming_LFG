@@ -19,6 +19,12 @@ public class User {
     private String email;
 
     @Column(nullable = false)
+    private String platform;
+
+    @Column(nullable = false)
+    private String gamerTag;
+
+    @Column(nullable = false)
     private String password;
 
     public User() {
@@ -46,6 +52,26 @@ public class User {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getPlatform() {
+        return platform;
+    }
+
+    public void setPlatform(String platform) {
+        this.platform = platform;
+    }
+
+    public String getGamerTag() {
+        return gamerTag;
+    }
+
+    public void setGamerTag(String gamerTag) {
+        this.gamerTag = gamerTag;
     }
 
     public String getPassword() {
