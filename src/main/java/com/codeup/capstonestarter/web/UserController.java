@@ -2,6 +2,7 @@ package com.codeup.capstonestarter.web;
 
 import com.codeup.capstonestarter.data.User;
 import com.codeup.capstonestarter.data.UserRepository;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -12,8 +13,11 @@ public class UserController {
 
     private final UserRepository userRepository;
 
-    public UserController(UserRepository userRepository) {
+    private final PasswordEncoder passwordEncoder;
+
+    public UserController(UserRepository userRepository, PasswordEncoder passwordEncoder) {
         this.userRepository = userRepository;
+        this.passwordEncoder = passwordEncoder;
     }
 
     @GetMapping
@@ -29,6 +33,7 @@ public class UserController {
     @PostMapping("/create")
     private void createUser(@RequestBody User user) {
 
+        user.setPassword(passwordEncoder.encode(user.getPassword()));
         userRepository.save(user);
     }
 

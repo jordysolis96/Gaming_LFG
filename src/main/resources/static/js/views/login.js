@@ -4,7 +4,7 @@ export default function Login() {
                <div class="reg-form" style="margin-top: 75px;">
         <form class="register-form" style="margin-bottom: 50px">
                 <div class="form-group">
-                    <input type="text" class="form-control" id="username" placeholder="Username">
+                    <input type="text" class="form-control" id="email" placeholder="Email">
                 </div>
                 <div class="form-group">
                     <input type="password" class="form-control" id="password" placeholder="Password">

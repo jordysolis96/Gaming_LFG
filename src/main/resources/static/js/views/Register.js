@@ -21,13 +21,14 @@ export default function Register(props) {
                 </div>
                  <div class="form-group"> <!--turn to enum eventually-->
 <!--                    <input type="text" class="form-control" id="platform" placeholder="ex. Playstation">-->
-            <select id="platform" class="form-control">
+            <select id="platform" class="form-control form-select">
+            <option selected>Gaming Platform</option>
             <option value="Playstation">Playstation</option>
             <option value="Switch">Switch</option>
             <option value="Xbox">Xbox</option>
             <option value="PC">PC</option>
             <option value="Mobile">Mobile</option>
-        </select>  
+            </select>  
                 </div>
                 <div class="form-group">
                     <input type="text" class="form-control" id="gamerTag" placeholder="Gamertag">

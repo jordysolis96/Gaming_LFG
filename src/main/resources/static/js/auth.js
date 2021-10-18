@@ -8,7 +8,7 @@ import createView from "./createView.js";
 export default function LoginEvent() {
     document.querySelector("#login-btn").addEventListener("click", function () {
         let obj = {
-            username: document.querySelector("#username").value,
+            email: document.querySelector("#email").value,
             password: document.querySelector("#password").value,
             grant_type: 'password'
         }
@@ -19,7 +19,7 @@ export default function LoginEvent() {
                 'Content-Type': 'application/x-www-form-urlencoded',
                 'Authorization': 'Basic ' + btoa('rest-blog-client:secret')
             },
-            body: `grant_type=${obj.grant_type}&username=${obj.username}&password=${obj.password}&client_id=rest-blog-client`
+            body: `grant_type=${obj.grant_type}&username=${obj.email}&password=${obj.password}&client_id=rest-blog-client`
         };
 
         fetchData(
@@ -33,6 +33,18 @@ export default function LoginEvent() {
     });
 }
 
+export function deleteTokens() {
+    localStorage.removeItem("access_token");
+    console.log("Access token deleted");
+    localStorage.removeItem("refresh_token");
+    console.log("Refresh token deleted")
+}
+
+export function LogoutEvent() {
+    deleteTokens();
+    createView("/")
+}
+
 /**
  * Gets the Authorization header needed for making requests to protected endpoints
  * This function should be used only after the user is logged in
@@ -44,7 +56,7 @@ export function getHeaders() {
         ? {
             'Content-Type': 'application/json',
             'Authorization': 'Bearer ' + `${token}`}
-        : false;
+        : {'Content-Type': 'application/json'};
 }
 
 /**
