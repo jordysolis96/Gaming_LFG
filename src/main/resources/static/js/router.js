@@ -2,6 +2,9 @@ import Home from "./views/Home.js";
 import Register, {registerListener} from "./views/Register.js";
 import Login from "./views/login.js";
 import LoginEvent, {LogoutEvent} from "./auth.js";
+import Profile from "./views/profile.js";
+import createLfg, {LfgListener} from "./views/createLfg.js";
+import lfg from "./views/lfg.js";
 /**
  * Returns the route object for a specific route based on the given URI
  * @param URI
@@ -35,9 +38,30 @@ export default function router(URI) {
             uri: '/',
             title: 'Home',
             viewEvent: LogoutEvent
+        },
+        '/profile': {
+            returnView: Profile,
+            state: {},
+            uri: '/profile',
+            title: 'profile',
+        },
+        '/createLfg': {
+            returnView: createLfg,
+            state: {},
+            uri: '/createLfg',
+            title: 'title',
+            viewEvent: LfgListener
+        },
+        '/lfg': {
+            returnView: lfg,
+            state: {
+               lfgs: '/api/lfg'
+            },
+            uri: '/lfg',
+            title: 'lfg'
         }
+
     };
 
     return routes[URI];
 }
-

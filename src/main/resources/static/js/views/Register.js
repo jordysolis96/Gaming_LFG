@@ -11,7 +11,7 @@ export default function Register(props) {
     <body>
         <h1 id="register-heading" style="text-align: center;">Register to start your adventure</h1>
     
-    <div class="reg-form" style="margin-top: 75px;">
+    <div class="reg-form" style="margin-top: 100px;">
         <form class="register-form" style="margin-bottom: 50px">
                 <div class="form-group">
                     <input type="text" class="form-control" id="username" placeholder="Username">
@@ -20,15 +20,14 @@ export default function Register(props) {
                     <input type="email" class="form-control" id="email" placeholder="Email">
                 </div>
                  <div class="form-group"> <!--turn to enum eventually-->
-<!--                    <input type="text" class="form-control" id="platform" placeholder="ex. Playstation">-->
-            <select id="platform" class="form-control form-select">
-            <option selected>Gaming Platform</option>
-            <option value="Playstation">Playstation</option>
-            <option value="Switch">Switch</option>
-            <option value="Xbox">Xbox</option>
-            <option value="PC">PC</option>
-            <option value="Mobile">Mobile</option>
-            </select>  
+                    <select id="platform" class="form-control form-select">
+                    <option selected>Gaming Platform</option>
+                    <option value="Playstation">Playstation</option>
+                    <option value="Switch">Switch</option>
+                    <option value="Xbox">Xbox</option>
+                    <option value="PC">PC</option>
+                    <option value="Mobile">Mobile</option>
+                    </select>  
                 </div>
                 <div class="form-group">
                     <input type="text" class="form-control" id="gamerTag" placeholder="Gamertag">
