@@ -4,8 +4,7 @@ export default function lfg(props){
             <div class="container">
                 <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 mx-auto">
                 <div class="col-12 my-3 text-center">
-                    <p>Writing out and articulating your thoughts is a great way to internalize something 
-                    <br>you’ve learned or experienced</p>
+                    <h1 style="margin-top: 50px">Put search bar here(should filter by game/platform)</h1>
                 </div>
                  ${props.lfgs.map(lfg => `${printLfgs(lfg)}`).join('')}  
             </div>
@@ -15,18 +14,16 @@ export default function lfg(props){
 }
 
 function printLfgs(lfg) {
-    //console.log(post)
-    // let categories1 = post.categories;
-    //console.log(categories1);
+
     return `
-        <div class="p-3">
+        <div class="p-3 mx-auto" style="margin-top: 50px; width: 700px">
             <div class="card shadow-sm p-0">
-                  
-                  <h5 contenteditable="false" class="card-header title"> ${lfg.title}</h5>
-                  <p contenteditable="false"  class="p-3 card-text content">
-                        ${lfg.description} <a href="#" class="readMore" data-id="${lfg.id}">Read more...</a>
-                  </p>
+                  <h2 contenteditable="false" class="card-header title" style="text-align: center;"> ${lfg.title}</h2>
+                  <h4 contenteditable="false" class="card-header title" style="text-align: center">${lfg.platform}</h4>
+                  <h6 style="font-size: small; text-align: center">${lfg.description}</h6>
             </div>
         </div>
     `
+
+    // add requirements to each post
 }

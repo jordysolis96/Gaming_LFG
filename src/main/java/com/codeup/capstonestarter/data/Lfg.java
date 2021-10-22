@@ -1,11 +1,12 @@
 package com.codeup.capstonestarter.data;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import io.swagger.v3.oas.annotations.tags.Tags;
 
 import javax.persistence.*;
 
 @Entity
-@Table(name = "lfg")
+@Table(name = "lfgs")
 public class Lfg {
 
     @Id
@@ -21,6 +22,10 @@ public class Lfg {
 
     @Column(nullable = false)
     private String description;
+
+    @ManyToOne
+    @JsonIgnoreProperties({"lfgs","password"})
+    private User user;
 
 // eventually add user
 // eventually add tags/requirements/preferences
@@ -59,5 +64,13 @@ public class Lfg {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 }

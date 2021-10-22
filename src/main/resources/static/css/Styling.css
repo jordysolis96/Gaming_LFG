@@ -2,7 +2,7 @@ h1, h3, p, label{
     color: white;
 }
 
-input, select{
+input, select, textarea{
     margin-bottom: 20px;
 }
 

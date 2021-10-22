@@ -25,7 +25,7 @@ export default function Navbar(props) {
                             </a>
                             <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDropdownMenuLink">
                                 <li><a class="dropdown-item" href="/createLfg" data-link>Requests team</a></li>
-                                <li><a class="dropdown-item" href="#">Find team</a></li>
+                                <li><a class="dropdown-item" href="/lfg" data-link>Find team</a></li>
                             </ul>
                         </li>
                         <li class="nav-item dropdown">

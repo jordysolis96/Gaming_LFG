@@ -1,10 +1,13 @@
 package com.codeup.capstonestarter.data;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
 import javax.validation.constraints.Email;
+import java.util.Collection;
 
 @Entity
-@Table(name = "user")
+@Table(name = "users")
 public class User {
 
     @Id
@@ -26,6 +29,10 @@ public class User {
 
     @Column(nullable = false)
     private String password;
+
+    @OneToMany(cascade = CascadeType.REMOVE, mappedBy = "user")
+    @JsonIgnoreProperties("user")
+    private Collection<Lfg> lfgs;
 
     public User() {
     }
@@ -80,5 +87,13 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public Collection<Lfg> getLfgs() {
+        return lfgs;
+    }
+
+    public void setLfgs(Collection<Lfg> lfgs) {
+        this.lfgs = lfgs;
     }
 }

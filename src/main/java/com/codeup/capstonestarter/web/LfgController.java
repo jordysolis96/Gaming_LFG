@@ -2,6 +2,9 @@ package com.codeup.capstonestarter.web;
 
 import com.codeup.capstonestarter.data.Lfg;
 import com.codeup.capstonestarter.data.LfgRepository;
+import com.codeup.capstonestarter.data.User;
+import com.codeup.capstonestarter.data.UserRepository;
+import org.springframework.security.oauth2.provider.OAuth2Authentication;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -11,9 +14,11 @@ import java.util.List;
 public class LfgController {
 
     private final LfgRepository lfgRepository;
+    private final UserRepository userRepository;
 
-    public LfgController(LfgRepository lfgRepository){
+    public LfgController(LfgRepository lfgRepository, UserRepository userRepository){
         this.lfgRepository = lfgRepository;
+        this.userRepository = userRepository;
     }
 
     @GetMapping
@@ -22,7 +27,13 @@ public class LfgController {
     }
 
     @PostMapping("/create")
-    public void create(@RequestBody Lfg lfg){
+    public void create(@RequestBody Lfg lfg, OAuth2Authentication auth){
+        String email = auth.getName();
+        System.out.println(email);
+        User user = userRepository.findByEmail(email).get();
+        System.out.println(user);
+        lfg.setUser(user);
+        System.out.println(lfg);
         lfgRepository.save(lfg);
     }
 

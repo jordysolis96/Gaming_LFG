@@ -1,6 +1,6 @@
 import createView from "../createView.js";
 
-export default function createLfg(){
+export default function createLfg(props){
     return `
     <h1 style="text-align: center;">Request a member</h1>
     <!--add description to was the page does later-->
@@ -8,10 +8,10 @@ export default function createLfg(){
     <div class="reg-form" style="margin-top: 75px;">
         <form class="register-form">
             <div class="form-group">
-                <input type="text" class="form-control" id="title" placeholder="Title">
+                <input type="text" class="form-control" id="title" placeholder="Game title">
             </div>
             <div class="form-group">
-                <input type="text" class="form-control" id="description" placeholder="Description">
+                <textarea type="text" class="form-control" id="description" placeholder="Description"></textarea>
             </div>
             <div class="form-group"> <!--turn to enum eventually-->
                         <select id="platform" class="form-control form-select">
@@ -34,16 +34,19 @@ export function LfgListener(){
         let title = $("#title").val();
         let description = $("#description").val();
         let platform = $("#platform option:selected").val();
+        // let userId = $(this).attr("data-id")
 
         console.log(title);
         console.log(description);
         console.log(platform);
+        // console.log(userId)
 
         let lfg = {
             id: 0,
             title: title,
             description: description,
-            platform: platform
+            platform: platform,
+            // user: userId
         }
 
         console.log(lfg);
