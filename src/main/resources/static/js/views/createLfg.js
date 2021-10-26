@@ -1,4 +1,5 @@
 import createView from "../createView.js";
+import {getHeaders} from "../auth.js";
 
 export default function createLfg(props){
     return `
@@ -53,8 +54,7 @@ export function LfgListener(){
 
         let request = {
             method: "POST",
-            headers: {
-                "Content-Type": "application/json"},
+            headers: getHeaders(),
             body: JSON.stringify(lfg)
         };
 

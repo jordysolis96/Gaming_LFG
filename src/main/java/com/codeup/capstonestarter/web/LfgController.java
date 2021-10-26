@@ -29,11 +29,8 @@ public class LfgController {
     @PostMapping("/create")
     public void create(@RequestBody Lfg lfg, OAuth2Authentication auth){
         String email = auth.getName();
-        System.out.println(email);
         User user = userRepository.findByEmail(email).get();
-        System.out.println(user);
         lfg.setUser(user);
-        System.out.println(lfg);
         lfgRepository.save(lfg);
     }
 
