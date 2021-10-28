@@ -61,7 +61,8 @@ export function LfgListener(){
         fetch("http://localhost:8080/api/lfg/create", request)
             .then((response) => {
                 console.log(response.status)
-                createView("/");
+                //redirect to view lfg page
+                createView("/lfg");
             }).catch(function (err) {
             console.log("There was an error of " + err);
         });

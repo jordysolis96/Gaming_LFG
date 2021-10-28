@@ -1,5 +1,6 @@
 package com.codeup.capstonestarter.data;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.persistence.*;
@@ -7,7 +8,7 @@ import javax.persistence.*;
 @Entity
 @Table(name = "events")
 public class Event {
-
+//add location and dateTime
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -17,6 +18,10 @@ public class Event {
 
     @Column(nullable = true, columnDefinition = "text")
     private String description;
+
+    @ManyToOne
+    @JsonIgnoreProperties({"events","password"})
+    private User user;
 
     public Event() {
     }
@@ -43,5 +48,13 @@ public class Event {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 }

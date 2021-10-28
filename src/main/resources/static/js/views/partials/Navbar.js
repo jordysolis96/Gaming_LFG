@@ -34,8 +34,8 @@ export default function Navbar(props) {
                                 Events
                             </a>
                             <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDropdownMenuLink">
-                                <li><a class="dropdown-item" href="#">Make an Event</a></li>
-                                <li><a class="dropdown-item" href="#">Discover Events</a></li>
+                                <li><a class="dropdown-item" href="/createEvent">Make an Event</a></li>
+                                <li><a class="dropdown-item" href="/events">Discover Events</a></li>
                             </ul>
                         </li>
                         <li class="nav-item px-3">

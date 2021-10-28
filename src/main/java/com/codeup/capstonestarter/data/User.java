@@ -34,6 +34,10 @@ public class User {
     @JsonIgnoreProperties("user")
     private Collection<Lfg> lfgs;
 
+    @OneToMany(cascade = CascadeType.REMOVE, mappedBy = "user")
+    @JsonIgnoreProperties("user")
+    private Collection<Event> events;
+
     public User() {
     }
 
@@ -95,5 +99,13 @@ public class User {
 
     public void setLfgs(Collection<Lfg> lfgs) {
         this.lfgs = lfgs;
+    }
+
+    public Collection<Event> getEvents() {
+        return events;
+    }
+
+    public void setEvents(Collection<Event> events) {
+        this.events = events;
     }
 }
