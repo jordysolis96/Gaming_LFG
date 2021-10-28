@@ -12,12 +12,13 @@ export default function lfg(props){
         </main>
     `;
 }
-
+//Get around to diplaying the username and platform for each individual post
 function printLfgs(lfg) {
-
+console.log(lfg.user)
     return `
         <div class="p-3 mx-auto" style="margin-top: 50px; width: 700px">
             <div class="card shadow-sm p-0">
+                 
                   <h2 contenteditable="false" class="card-header title" style="text-align: center;"> ${lfg.title}</h2>
                   <h4 contenteditable="false" class="card-header title" style="text-align: center">${lfg.platform}</h4>
                   <h6 style="font-size: small; text-align: center">${lfg.description}</h6>
