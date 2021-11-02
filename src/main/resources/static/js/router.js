@@ -6,7 +6,7 @@ import Profile from "./views/profile.js";
 import createLfg, {LfgListener} from "./views/createLfg.js";
 import lfg from "./views/lfg.js";
 import createEvent, {EventListener} from "./views/createEvents.js";
-import event from "./views/partials/events.js";
+import event, {mapBox} from "./views/partials/events.js";
 /**
  * Returns the route object for a specific route based on the given URI
  * @param URI
@@ -75,7 +75,8 @@ export default function router(URI) {
                 events: '/api/event'
             },
             uri: '/events',
-            title: 'event'
+            title: 'event',
+            viewEvent: mapBox
         }
 
     };

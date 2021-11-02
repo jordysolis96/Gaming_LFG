@@ -1,3 +1,7 @@
+import {MAPBOX_KEY} from "../../keys.js";
+
+mapboxgl.accessToken = MAPBOX_KEY;
+console.log(mapboxgl.accessToken)
 export default function event(props){
     return `
         <main>
@@ -10,6 +14,8 @@ export default function event(props){
                  ${props.events.map(event => `${printEvents(event)}`).join('')}  
             </div>
             </div>
+<!--            <script>showMap()</script>-->
+            <div id='map' style='width: 400px; height: 300px;'></div>
         </main>
     `;
 }
@@ -27,4 +33,44 @@ function printEvents(event) {
     `
 
     // add location, date/time, and map
+}
+
+// function showMap() {
+//
+//     return `<div id="map" style='width: 400px; height: 300px;'></div>
+// <Script>
+//     mapboxgl.accessToken = MAPBOX_KEY;
+//     console.log(mapboxgl.accessToken)
+//     var map = new mapboxgl.Map({
+//         container: 'map',
+//         style: 'mapbox://styles/mapbox/streets-v9',
+//         zoom: 4,
+//         center: [-97.922, 39.381]
+//     })</Script>
+//
+// `
+// }
+
+
+// mapboxgl.accessToken = MAPBOX_KEY;
+//     console.log(mapboxgl.accessToken)
+//     var map = new mapboxgl.Map({
+//         container: 'map',
+//         style: 'mapbox://styles/mapbox/streets-v9',
+//         zoom: 4,
+//         center: [-97.922, 39.381]
+//     });
+
+// export function createMapbox(){
+//     let map = mapBox();
+//
+// }
+
+export function mapBox(){
+    return new mapboxgl.Map({
+        container: 'map',
+        style: 'mapbox://styles/mapbox/streets-v9',
+        center: [-96.283496, 37.230328],
+        zoom: 4
+    })
 }
