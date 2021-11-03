@@ -35,12 +35,10 @@ export function LfgListener(){
         let title = $("#title").val();
         let description = $("#description").val();
         let platform = $("#platform option:selected").val();
-        // let userId = $(this).attr("data-id")
 
         console.log(title);
         console.log(description);
         console.log(platform);
-        // console.log(userId)
 
         let lfg = {
             id: 0,

@@ -28,6 +28,8 @@ function printEvents(event) {
                  
                   <h2 contenteditable="false" class="card-header title" style="text-align: center;"> ${event.title}</h2>
                   <h6 style="font-size: small; text-align: center">${event.description}</h6>
+                  <h6 style="font-size: small; text-align: center">${event.date}</h6>
+                  <button type="button"  id="location" style="font-size: small; text-align: center">${event.location}</button>
             </div>
         </div>
     `
@@ -35,42 +37,42 @@ function printEvents(event) {
     // add location, date/time, and map
 }
 
-// function showMap() {
-//
-//     return `<div id="map" style='width: 400px; height: 300px;'></div>
-// <Script>
-//     mapboxgl.accessToken = MAPBOX_KEY;
-//     console.log(mapboxgl.accessToken)
-//     var map = new mapboxgl.Map({
+// export function mapBox(){
+//     return new mapboxgl.Map({
 //         container: 'map',
 //         style: 'mapbox://styles/mapbox/streets-v9',
-//         zoom: 4,
-//         center: [-97.922, 39.381]
-//     })</Script>
-//
-// `
+//         center: [-96.283496, 37.230328],
+//         zoom: 4
+//     })
 // }
 
+export function mapBox() {
+    $(document).ready(function () {
+        if (document.getElementById("map") !== null) {
+            mapboxgl.accessToken = MAPBOX_KEY;
+            let map = new mapboxgl.Map({
+                container: 'map',
+                style: 'mapbox://styles/mapbox/streets-v11',
+                zoom: 4,
+                center: [-97.922, 39.381]
+            });
 
-// mapboxgl.accessToken = MAPBOX_KEY;
-//     console.log(mapboxgl.accessToken)
-//     var map = new mapboxgl.Map({
-//         container: 'map',
-//         style: 'mapbox://styles/mapbox/streets-v9',
-//         zoom: 4,
-//         center: [-97.922, 39.381]
-//     });
-
-// export function createMapbox(){
-//     let map = mapBox();
-//
-// }
-
-export function mapBox(){
-    return new mapboxgl.Map({
-        container: 'map',
-        style: 'mapbox://styles/mapbox/streets-v9',
-        center: [-96.283496, 37.230328],
-        zoom: 4
+            const geocode = (input) => {
+                fetch(`https://api.mapbox.com/geocoding/v5/mapbox.places/${input}.json?&access_token=${MAPBOX_KEY}`)
+                    .then(res => res.json())
+                    .then(data => {
+                        try {
+                            map.flyTo({center: data.features[0].center, essential: true, zoom: 15})
+                        } catch (e) {
+                            console.log(e);
+                        }
+                    })
+            }
+            $(document).on("click", "#location", function () {
+                geocode(this.innerText)
+            })
+        }
     })
 }
+
+
