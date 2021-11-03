@@ -18,7 +18,7 @@ public class Lfg {
     private String title;
 
     @Column(nullable = true)
-    private String platform;
+    private String skill;
 
     @Column(nullable = false)
     private String description;
@@ -50,12 +50,12 @@ public class Lfg {
         this.title = title;
     }
 
-    public String getPlatform() {
-        return platform;
+    public String getSkill() {
+        return skill;
     }
 
-    public void setPlatform(String platform) {
-        this.platform = platform;
+    public void setSkill(String skill) {
+        this.skill = skill;
     }
 
     public String getDescription() {

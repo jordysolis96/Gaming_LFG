@@ -15,13 +15,13 @@ export default function createLfg(props){
                 <textarea type="text" class="form-control" id="description" placeholder="Description"></textarea>
             </div>
             <div class="form-group"> <!--turn to enum eventually-->
-                        <select id="platform" class="form-control form-select">
-                        <option selected>Gaming Platform</option>
-                        <option value="Playstation">Playstation</option>
-                        <option value="Switch">Switch</option>
-                        <option value="Xbox">Xbox</option>
-                        <option value="PC">PC</option>
-                        <option value="Mobile">Mobile</option>
+                        <select id="skill" class="form-control form-select">
+                        <option selected>Skill</option>
+                        <option value="Beginner">Beginner</option>
+                        <option value="Experienced">Experienced</option>
+                        <option value="Veteran">Veteran</option>
+                        <option value="Pro">Pro</option>
+                        <option value="Any">Any</option>
                         </select>  
             </div>
             <button type="submit" class="myButton btn btn-dark" id="submit-btn">Submit</button>
@@ -34,18 +34,18 @@ export function LfgListener(){
     $("#submit-btn").click(function (){
         let title = $("#title").val();
         let description = $("#description").val();
-        let platform = $("#platform option:selected").val();
+        let skill = $("#skill option:selected").val();
 
         console.log(title);
         console.log(description);
-        console.log(platform);
+        console.log(skill);
 
         let lfg = {
             id: 0,
             title: title,
             description: description,
-            platform: platform,
-            // user: userId
+            skill: skill,
+
         }
 
         console.log(lfg);

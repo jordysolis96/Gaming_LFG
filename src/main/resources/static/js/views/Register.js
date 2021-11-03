@@ -30,7 +30,7 @@ export default function Register(props) {
                     </select>  
                 </div>
                 <div class="form-group">
-                    <input type="text" class="form-control" id="gamerTag" placeholder="Gamertag">
+                    <input type="text" class="form-control" id="gamerTag" placeholder="Platform Gamertag">
                 </div>
                 <div class="form-group">
                     <input type="password" class="form-control" id="password" placeholder="Password">
