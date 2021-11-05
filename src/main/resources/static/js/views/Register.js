@@ -35,6 +35,9 @@ export default function Register(props) {
                 <div class="form-group">
                     <input type="password" class="form-control" id="password" placeholder="Password">
                 </div>
+                <div class="form-group">
+                <input type="file" id="profilePic" name="file">
+                </div>
                 <button type="submit" class="myButton btn btn-dark" id="submit-user">Submit</button>
             </form>
             <p style="text-align: center; margin-bottom: 20px">Have an account?<a> Sign in</a></p>

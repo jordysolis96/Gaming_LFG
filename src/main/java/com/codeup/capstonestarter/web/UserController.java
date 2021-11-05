@@ -3,6 +3,7 @@ package com.codeup.capstonestarter.web;
 import com.codeup.capstonestarter.data.User;
 import com.codeup.capstonestarter.data.UserRepository;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.oauth2.provider.OAuth2Authentication;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -46,5 +47,10 @@ public class UserController {
     @DeleteMapping("/{id}")
     private void deleteUser(@PathVariable Long id) {
         userRepository.deleteById(id);
+    }
+
+    @GetMapping("/user")
+    private User getCurrentUser(OAuth2Authentication auth){
+        return userRepository.findByEmail(auth.getName()).get();
     }
 }

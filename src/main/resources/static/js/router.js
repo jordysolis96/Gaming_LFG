@@ -43,7 +43,9 @@ export default function router(URI) {
         },
         '/profile': {
             returnView: Profile,
-            state: {},
+            state: {
+                user: "/api/users/user"
+            },
             uri: '/profile',
             title: 'profile',
         },
