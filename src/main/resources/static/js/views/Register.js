@@ -11,7 +11,7 @@ export default function Register(props) {
     <body>
         <h1 id="register-heading" style="text-align: center;">Register to start your adventure</h1>
     
-    <div class="reg-form" style="margin-top: 100px;">
+    <div class="reg-form" style="margin-top: 50px;">
         <form class="register-form" style="margin-bottom: 50px">
                 <div class="form-group">
                     <input type="text" class="form-control" id="username" placeholder="Username">
@@ -74,7 +74,7 @@ console.log(user)
         fetch("http://localhost:8080/api/users/create", request)
             .then((response) => {
                 console.log(response.status)
-                createView("/");
+                createView("/login");
             }).catch(function (err) {
             console.log("There was an error of " + err);
         });

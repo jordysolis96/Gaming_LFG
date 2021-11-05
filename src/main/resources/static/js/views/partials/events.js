@@ -9,28 +9,27 @@ export default function event(props){
                 <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 mx-auto">
                 <div class="col-12 my-3 text-center">
                     <h1>Explore events</h1>
-                    <h1 style="margin-top: 50px">Put search bar here(should filter by location)</h1>
                 </div>
                  ${props.events.map(event => `${printEvents(event)}`).join('')}  
             </div>
             </div>
 <!--            <script>showMap()</script>-->
-            <div id='map' style='width: 400px; height: 300px;'></div>
+            <div id='map' style='width: 500px; height: 400px; margin-left: 300px; margin-right: 300px'></div>
         </main>
     `;
 }
 //Get around to displaying the username and platform for each individual post
 function printEvents(event) {
     console.log(event.user)
-    return `
-        <div class="p-3 mx-auto" style="margin-top: 50px; width: 700px">
-            <div class="card shadow-sm p-0">
-                 
-                  <h2 contenteditable="false" class="card-header title" style="text-align: center;"> ${event.title}</h2>
-                  <h6 style="font-size: small; text-align: center">${event.description}</h6>
-                  <h6 style="font-size: small; text-align: center">${event.date}</h6>
-                  <button type="button"  id="location" style="font-size: small; text-align: center">${event.location}</button>
-            </div>
+    return `   
+        <div class="card text-white bg-dark mb-3" style="max-width: 18rem; margin-bottom: 150px; margin-left: 50px; overflow-y: auto;">
+        <div class="card-header">Poster by: ${event.user.username}</div>
+         <div class="card-body">
+            <h5 class="card-title">${event.title}</h5>
+            <h6>Date: ${event.date}</h6>
+            <p>${event.description}</p>
+        <button type="button"  id="location" style="font-size: small; text-align: center">${event.location}</button>
+        </div>
         </div>
     `
 

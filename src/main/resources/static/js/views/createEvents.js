@@ -6,7 +6,7 @@ export default function createEvent(){
     <h1 style="text-align: center;">Make an event for others to see!</h1>
     <!--add description to was the page does later-->
 
-    <div class="reg-form" style="margin-top: 75px;">
+    <div class="reg-form" style="margin-top: 75px; margin-bottom: 100px">
         <form class="register-form">
             <div class="form-group">
                 <input type="text" class="form-control" id="title" placeholder="Event name">
