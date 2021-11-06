@@ -13,75 +13,140 @@ import event, {mapBox} from "./views/partials/events.js";
  * @returns {*}
  */
 export default function router(URI) {
-    const routes = {
-        '/': {
-            returnView: Home,
-            state: {},
-            uri: '/',
-            title: 'Home',
-        },
-        '/register': {
-            returnView: Register,
-            state: {},
-            uri: '/register',
-            title: 'Register',
-            viewEvent: registerListener
-        },
-        '/login': {
-            returnView: Login,
-            state: {},
-            uri: '/login',
-            title: 'login',
-            viewEvent: LoginEvent
-        },
-        '/logout': {
-            returnView: Home,
-            state: {},
-            uri: '/',
-            title: 'Home',
-            viewEvent: LogoutEvent
-        },
-        '/profile': {
-            returnView: Profile,
-            state: {
-                user: "/api/users/user"
+    if(localStorage.getItem("access_token")) {
+        const routes = {
+            '/': {
+                returnView: Home,
+                state: {},
+                uri: '/',
+                title: 'Home',
             },
-            uri: '/profile',
-            title: 'profile',
-        },
-        '/createLfg': {
-            returnView: createLfg,
-            state: {},
-            uri: '/createLfg',
-            title: 'createLfg',
-            viewEvent: LfgListener
-        },
-        '/lfg': {
-            returnView: lfg,
-            state: {
-               lfgs: '/api/lfg'
+            '/register': {
+                returnView: Register,
+                state: {},
+                uri: '/register',
+                title: 'Register',
+                viewEvent: registerListener
             },
-            uri: '/lfg',
-            title: 'lfg'
-        },
-        '/createEvent': {
-           returnView: createEvent,
-            state:{},
-            uri: '/createEvent',
-            title: 'createEvent',
-            viewEvent: EventListener
-        },
-        '/events': {
-            returnView: event,
-            state: {
-                events: '/api/event'
+            '/login': {
+                returnView: Login,
+                state: {},
+                uri: '/login',
+                title: 'login',
+                viewEvent: LoginEvent
             },
-            uri: '/events',
-            title: 'event',
-            viewEvent: mapBox
-        }
+            '/logout': {
+                returnView: Home,
+                state: {},
+                uri: '/',
+                title: 'Home',
+                viewEvent: LogoutEvent
+            },
+            '/profile': {
+                returnView: Profile,
+                state: {
+                    user: "/api/users/user"
+                },
+                uri: '/profile',
+                title: 'profile',
+            },
+            '/createLfg': {
+                returnView: createLfg,
+                state: {},
+                uri: '/createLfg',
+                title: 'createLfg',
+                viewEvent: LfgListener
+            },
+            '/lfg': {
+                returnView: lfg,
+                state: {
+                    lfgs: '/api/lfg'
+                },
+                uri: '/lfg',
+                title: 'lfg'
+            },
+            '/createEvent': {
+                returnView: createEvent,
+                state: {},
+                uri: '/createEvent',
+                title: 'createEvent',
+                viewEvent: EventListener
+            },
+            '/events': {
+                returnView: event,
+                state: {
+                    events: '/api/event'
+                },
+                uri: '/events',
+                title: 'event',
+                viewEvent: mapBox
+            }
 
-    };
+        };
 
-    return routes[URI];
+        return routes[URI];
+    }else {
+        const routes = {
+            '/': {
+                returnView: Home,
+                state: {},
+                uri: '/',
+                title: 'Home'
+            },
+            '/register': {
+                returnView: Register,
+                state: {},
+                uri: '/register',
+                title: 'Register',
+                viewEvent: registerListener
+            },
+            '/login': {
+                returnView: Login,
+                state: {},
+                uri: '/login',
+                title: 'login',
+                viewEvent: LoginEvent
+            },
+            '/logout': {
+                returnView: Home,
+                state: {},
+                uri: '/',
+                title: 'Home',
+                viewEvent: LogoutEvent
+            },
+            '/profile': {
+                returnView: Home,
+                state: {},
+                uri: '/',
+                title: 'Home'
+            },
+            '/createLfg': {
+                returnView: Home,
+                state: {},
+                uri: '/',
+                title: 'Home'
+            },
+            '/lfg': {
+                returnView: Home,
+                state: {},
+                uri: '/',
+                title: 'Home'
+            },
+            '/createEvent': {
+                returnView: Home,
+                state: {},
+                uri: '/',
+                title: 'Home'
+            },
+            '/events': {
+                returnView: Home,
+                state: {},
+                uri: '/',
+                title: 'Home'
+            }
+
+        };
+
+        return routes[URI];
+    }
 }
