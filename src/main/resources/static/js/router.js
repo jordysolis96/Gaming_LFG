@@ -2,7 +2,7 @@ import Home from "./views/Home.js";
 import Register, {registerListener} from "./views/Register.js";
 import Login from "./views/login.js";
 import LoginEvent, {LogoutEvent} from "./auth.js";
-import Profile from "./views/profile.js";
+import Profile, {userEdit} from "./views/profile.js";
 import createLfg, {LfgListener} from "./views/createLfg.js";
 import lfg from "./views/lfg.js";
 import createEvent, {EventListener} from "./views/createEvents.js";
@@ -49,6 +49,7 @@ export default function router(URI) {
                 },
                 uri: '/profile',
                 title: 'profile',
+                viewEvent: userEdit
             },
             '/createLfg': {
                 returnView: createLfg,

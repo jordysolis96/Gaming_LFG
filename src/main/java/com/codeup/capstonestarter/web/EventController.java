@@ -33,4 +33,10 @@ public class EventController {
         event.setUser(user);
         eventsRepository.save(event);
     }
+
+    @DeleteMapping("/{id}")
+    public void delete(@PathVariable Long id){
+        eventsRepository.deleteById(id);
+    }
+
 }
